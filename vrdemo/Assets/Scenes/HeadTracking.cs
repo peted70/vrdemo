@@ -8,6 +8,7 @@ public class HeadTracking : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        Screen.orientation = ScreenOrientation.LandscapeRight;
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         if (SystemInfo.supportsGyroscope)
         {
@@ -27,7 +28,7 @@ public class HeadTracking : MonoBehaviour
         {
             var camRot = gyro.attitude;
             transform.eulerAngles = initial;
-            transform.localRotation *= camRot;
+            transform.rotation *= camRot;
         }
     }
 }
